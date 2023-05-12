@@ -1,4 +1,4 @@
-import { Roboto, Roboto_Mono } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 import {
   AiOutlineMenu,
   AiOutlineFile,
@@ -6,9 +6,8 @@ import {
   AiOutlineEye,
 } from 'react-icons/ai';
 import { FaRegTrashAlt } from 'react-icons/fa';
-
+import Panes from '@/components/Panes';
 const roboto = Roboto({ subsets: ['latin'], weight: '400' });
-const robotoMono = Roboto_Mono({ subsets: ['latin'] });
 
 export default function Home() {
   return (
@@ -40,9 +39,9 @@ export default function Home() {
       </div>
 
       <section>
-        <textarea
-          className={`${robotoMono.className} h-[calc(100vh-112px)] w-full resize-none p-4 text-base-700`}
-        ></textarea>
+        {/* <MarkdownPane /> */}
+
+        <Panes />
       </section>
     </main>
   );
