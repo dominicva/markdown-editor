@@ -1,5 +1,10 @@
 import { Roboto } from 'next/font/google';
-import { AiOutlineMenu, AiOutlineFile, AiOutlineSave } from 'react-icons/ai';
+import {
+  AiOutlineMenu,
+  AiOutlineFile,
+  AiOutlineSave,
+  AiOutlineEye,
+} from 'react-icons/ai';
 import { FaRegTrashAlt } from 'react-icons/fa';
 
 const roboto = Roboto({ subsets: ['latin'], weight: '400' });
@@ -23,7 +28,16 @@ export default function Home() {
         </button>
       </header>
       <main>
-        <h1 className="text-base-500">Markdown Editor</h1>
+        <div className="flex items-center justify-between bg-base-200 p-4">
+          <h2
+            className={`${roboto.className} text-sm uppercase tracking-wide text-base-500`}
+          >
+            markdown editor
+          </h2>
+          <button>
+            <AiOutlineEye className="h-6 w-6" />
+          </button>
+        </div>
       </main>
     </>
   );
