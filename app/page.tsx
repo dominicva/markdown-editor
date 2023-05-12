@@ -1,4 +1,4 @@
-import { Roboto } from 'next/font/google';
+import { Roboto, Roboto_Mono } from 'next/font/google';
 import {
   AiOutlineMenu,
   AiOutlineFile,
@@ -8,17 +8,18 @@ import {
 import { FaRegTrashAlt } from 'react-icons/fa';
 
 const roboto = Roboto({ subsets: ['latin'], weight: '400' });
+const robotoMono = Roboto_Mono({ subsets: ['latin'] });
 
 export default function Home() {
   return (
-    <>
+    <main>
       <header className="flex items-center bg-base-800 pr-2 text-base-100">
         <button className="mr-6 flex h-14 w-14 items-center justify-center bg-base-700">
           <AiOutlineMenu />
         </button>
         <div className="mr-auto flex items-center gap-2">
           <AiOutlineFile />
-          <h1 className={roboto.className}>untitled.md</h1>
+          <h2 className={roboto.className}>untitled.md</h2>
         </div>
         <button className="mr-6">
           <FaRegTrashAlt className="text-base-500" />
@@ -27,18 +28,22 @@ export default function Home() {
           <AiOutlineSave />
         </button>
       </header>
-      <main>
-        <div className="flex items-center justify-between bg-base-200 p-4">
-          <h2
-            className={`${roboto.className} text-sm uppercase tracking-wide text-base-500`}
-          >
-            markdown editor
-          </h2>
-          <button>
-            <AiOutlineEye className="h-6 w-6" />
-          </button>
-        </div>
-      </main>
-    </>
+      <div className="flex items-center justify-between bg-base-200 p-4">
+        <h2
+          className={`${roboto.className} text-sm uppercase tracking-wide text-base-500`}
+        >
+          markdown editor
+        </h2>
+        <button>
+          <AiOutlineEye className="h-6 w-6" />
+        </button>
+      </div>
+
+      <section>
+        <textarea
+          className={`${robotoMono.className} h-[calc(100vh-112px)] w-full resize-none p-4 text-base-700`}
+        ></textarea>
+      </section>
+    </main>
   );
 }
