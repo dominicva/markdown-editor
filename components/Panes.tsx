@@ -71,7 +71,7 @@ export default function Panes() {
           <AiOutlineEye className="h-6 w-6" />
         </button>
       </div>
-      <div className="relative h-screen overflow-hidden">
+      <div className="relative h-screen overflow-scroll">
         <MarkdownPane
           markdown={markdown}
           onChange={handleChange}
@@ -92,14 +92,11 @@ function MarkdownPane({
   onChange: ChangeEventHandler;
   show: boolean;
 }) {
-  const baseStyles =
-    'absolute left-0 top-0 mt-16 h-[calc(100vh-112px)] w-full resize-none p-4 text-base-700 transition-transform duration-300 ease-in';
+  const baseStyles = `${robotoMono.className} absolute left-0 top-0 mt-16 h-[calc(100vh-112px)] w-full resize-none p-4 text-base-700 transition-transform duration-300 ease-in`;
 
   return (
     <textarea
-      className={`${robotoMono.className} ${
-        show ? '' : 'out-left'
-      } ${baseStyles}`}
+      className={`${show ? '' : 'out-left'} ${baseStyles}`}
       value={markdown}
       onChange={onChange}
     ></textarea>
