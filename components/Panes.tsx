@@ -61,7 +61,7 @@ export default function Panes() {
 
   return (
     <section className="overflow-hidden pt-16">
-      <div className="fixed flex w-full items-center justify-between bg-base-200 p-4">
+      <div className="fixed z-10 flex w-full items-center justify-between bg-base-200 p-4">
         <h2
           className={`${roboto.className} my-0 text-sm uppercase tracking-wide text-base-500`}
         >
@@ -71,7 +71,7 @@ export default function Panes() {
           <AiOutlineEye className="h-6 w-6" />
         </button>
       </div>
-      <div className="relative -z-10 h-screen overflow-hidden">
+      <div className="relative h-screen overflow-hidden">
         <MarkdownPane
           markdown={markdown}
           onChange={handleChange}
@@ -92,11 +92,14 @@ function MarkdownPane({
   onChange: ChangeEventHandler;
   show: boolean;
 }) {
+  const baseStyles =
+    'absolute left-0 top-0 mt-16 h-[calc(100vh-112px)] w-full resize-none p-4 text-base-700 transition-transform duration-300 ease-in';
+
   return (
     <textarea
       className={`${robotoMono.className} ${
-        show ? '' : 'out-left '
-      }absolute left-0 top-0 -z-10 mt-16 h-[calc(100vh-112px)] w-full resize-none p-4 text-base-700 transition-transform duration-300 ease-in`}
+        show ? '' : 'out-left'
+      } ${baseStyles}`}
       value={markdown}
       onChange={onChange}
     ></textarea>
@@ -104,11 +107,12 @@ function MarkdownPane({
 }
 
 function HtmlPane({ html, show }: { html: string; show: boolean }) {
+  const baseStyles =
+    'h-[calc(100vh-112px)] absolute left-0 top-0  -z-10 mt-16 w-full resize-none p-4 transition-transform duration-300 ease-in';
+
   return (
     <article
-      className={`${
-        show ? '' : 'out-right '
-      }h-[calc(100vh-112px)] absolute left-0 top-0  -z-10 mt-16 w-full resize-none p-4 transition-transform duration-300 ease-in`}
+      className={`${show ? '' : 'out-right'} ${baseStyles}`}
       dangerouslySetInnerHTML={{ __html: html }}
     ></article>
   );
