@@ -65,7 +65,7 @@ export default function Panes() {
         <h2
           className={`${roboto.className} my-0 text-sm uppercase tracking-wide text-base-500`}
         >
-          markdown editor
+          {showPreview ? 'preview' : 'markdown'}
         </h2>
         <button className="py-1" onClick={handlePreviewToggle}>
           <AiOutlineEye className="h-6 w-6" />
