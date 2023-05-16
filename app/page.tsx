@@ -7,7 +7,7 @@ const roboto = Roboto({ subsets: ['latin'], weight: '400' });
 
 export default function Home() {
   return (
-    <main>
+    <main className="max-h-screen">
       <div className="fixed w-full">
         <header className="flex items-center bg-base-800 py-1 pr-2 text-base-100">
           <button className="mr-6 flex h-14 w-14 items-center justify-center bg-base-700">
@@ -15,7 +15,7 @@ export default function Home() {
           </button>
           <div className="mr-auto flex items-center gap-2">
             <AiOutlineFile />
-            <h2 className={`${roboto.className} mb-0 text-sm`}>untitled.md</h2>
+            <h2 className={`${roboto.className} my-0 text-sm`}>untitled.md</h2>
           </div>
           <button className="mr-6">
             <FaRegTrashAlt className="text-base-500" />

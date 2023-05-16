@@ -25,9 +25,9 @@ export default function Panes() {
 
   return (
     <>
-      <div className="flex items-center justify-between bg-base-200 p-4">
+      <div className="fixed flex w-full items-center justify-between bg-base-200 p-4">
         <h2
-          className={`${roboto.className} mb-0 text-sm uppercase tracking-wide text-base-500`}
+          className={`${roboto.className} my-0 text-sm uppercase tracking-wide text-base-500`}
         >
           markdown editor
         </h2>
@@ -57,8 +57,8 @@ function MarkdownPane({
   return (
     <textarea
       className={`${robotoMono.className} ${
-        isPreview ? '-translate-x-full' : ''
-      } absolute  h-[calc(100vh-112px)] w-full resize-none p-4 text-base-700 transition-transform duration-300 ease-in`}
+        isPreview ? '-translate-x-full ' : ''
+      }absolute  mt-16 h-[calc(100vh-112px)] w-full resize-none p-4 text-base-700 transition-transform duration-300 ease-in`}
       value={markdown}
       onChange={onChange}
     ></textarea>
@@ -66,12 +66,11 @@ function MarkdownPane({
 }
 
 function HtmlPane({ html, isPreview }: { html: string; isPreview: boolean }) {
-  const styles = `${isPreview ? '' : 'translate-x-full'}
-  }h-[calc(100vh-112px)] w-full  resize-none p-4 text-base-700 transition-transform duration-300 ease-in`;
-
   return (
     <article
-      className={styles}
+      className={`${
+        isPreview ? '' : 'translate-x-full '
+      }h-[calc(100vh-112px)] absolute -z-10 mt-16 w-full resize-none p-4 transition-transform duration-300 ease-in`}
       dangerouslySetInnerHTML={{ __html: html }}
     ></article>
   );
