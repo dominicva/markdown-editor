@@ -31,7 +31,7 @@ export default function Panes() {
         >
           markdown editor
         </h2>
-        <button onClick={handlePreviewToggle}>
+        <button className="py-1" onClick={handlePreviewToggle}>
           <AiOutlineEye className="h-6 w-6" />
         </button>
       </div>

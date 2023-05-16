@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main>
       <div className="fixed w-full">
-        <header className="flex items-center bg-base-800 pr-2 text-base-100">
+        <header className="flex items-center bg-base-800 py-1 pr-2 text-base-100">
           <button className="mr-6 flex h-14 w-14 items-center justify-center bg-base-700">
             <AiOutlineMenu />
           </button>
@@ -26,7 +26,7 @@ export default function Home() {
         </header>
       </div>
 
-      <section className="overflow-hidden pt-14">
+      <section className="overflow-hidden pt-16">
         <Panes />
       </section>
     </main>
