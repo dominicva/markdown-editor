@@ -60,7 +60,7 @@ export default function Panes() {
   }
 
   return (
-    <>
+    <section className="overflow-hidden pt-16">
       <div className="fixed flex w-full items-center justify-between bg-base-200 p-4">
         <h2
           className={`${roboto.className} my-0 text-sm uppercase tracking-wide text-base-500`}
@@ -77,7 +77,7 @@ export default function Panes() {
         isPreview={isPreview}
       />
       <HtmlPane html={html} isPreview={isPreview} />
-    </>
+    </section>
   );
 }
 
