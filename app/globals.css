@@ -102,3 +102,11 @@ blockquote p {
   color: var(--base-700);
   font-weight: bold;
 }
+
+.out-left {
+  transform: translateX(-100%);
+}
+
+.out-right {
+  transform: translateX(100%);
+}

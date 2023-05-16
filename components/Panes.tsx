@@ -47,12 +47,12 @@ This markdown editor allows for inline-code snippets, like this: \`<p>I'm inline
 
 export default function Panes() {
   const [markdown, setMarkdown] = useState(md);
-  const [isPreview, setIsPreview] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
 
   const html = marked.parse(markdown);
 
   function handlePreviewToggle() {
-    setIsPreview(!isPreview);
+    setShowPreview(!showPreview);
   }
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
@@ -71,12 +71,14 @@ export default function Panes() {
           <AiOutlineEye className="h-6 w-6" />
         </button>
       </div>
-      <MarkdownPane
-        markdown={markdown}
-        onChange={handleChange}
-        isPreview={isPreview}
-      />
-      <HtmlPane html={html} isPreview={isPreview} />
+      <div className="relative -z-10 h-screen overflow-hidden">
+        <MarkdownPane
+          markdown={markdown}
+          onChange={handleChange}
+          show={!showPreview}
+        />
+        <HtmlPane html={html} show={showPreview} />
+      </div>
     </section>
   );
 }
@@ -84,29 +86,29 @@ export default function Panes() {
 function MarkdownPane({
   markdown,
   onChange,
-  isPreview,
+  show,
 }: {
   markdown: string;
   onChange: ChangeEventHandler;
-  isPreview: boolean;
+  show: boolean;
 }) {
   return (
     <textarea
       className={`${robotoMono.className} ${
-        isPreview ? '-translate-x-full ' : ''
-      }absolute  -z-10 mt-16 h-[calc(100vh-112px)] w-full resize-none p-4 text-base-700 transition-transform duration-300 ease-in`}
+        show ? '' : 'out-left '
+      }absolute left-0 top-0 -z-10 mt-16 h-[calc(100vh-112px)] w-full resize-none p-4 text-base-700 transition-transform duration-300 ease-in`}
       value={markdown}
       onChange={onChange}
     ></textarea>
   );
 }
 
-function HtmlPane({ html, isPreview }: { html: string; isPreview: boolean }) {
+function HtmlPane({ html, show }: { html: string; show: boolean }) {
   return (
     <article
       className={`${
-        isPreview ? '' : 'translate-x-full '
-      }h-[calc(100vh-112px)] absolute -z-10 mt-16 w-full resize-none p-4 transition-transform duration-300 ease-in`}
+        show ? '' : 'out-right '
+      }h-[calc(100vh-112px)] absolute left-0 top-0  -z-10 mt-16 w-full resize-none p-4 transition-transform duration-300 ease-in`}
       dangerouslySetInnerHTML={{ __html: html }}
     ></article>
   );
