@@ -7,7 +7,7 @@ const roboto = Roboto({ subsets: ['latin'], weight: '400' });
 
 export default function Home() {
   return (
-    <main className="max-h-screen">
+    <main>
       <div className="fixed w-full">
         <header className="flex items-center bg-base-800 py-1 pr-2 text-base-100">
           <button className="mr-6 flex h-14 w-14 items-center justify-center bg-base-700">
