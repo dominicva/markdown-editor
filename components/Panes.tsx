@@ -71,7 +71,7 @@ export default function Panes() {
           <AiOutlineEye className="h-6 w-6" />
         </button>
       </div>
-      <div className="relative h-screen overflow-scroll">
+      <div className="relative h-screen overflow-x-hidden overflow-y-scroll">
         <MarkdownPane
           markdown={markdown}
           onChange={handleChange}
